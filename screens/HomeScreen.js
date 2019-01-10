@@ -7,8 +7,9 @@ import {
   Text,
   TouchableOpacity,
   View,
-  Button,
 } from 'react-native';
+import {Button} from 'react-native-elements'
+import {Icon} from 'react-native-vector-icons/FontAwesome'
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
@@ -20,6 +21,10 @@ export default class HomeScreen extends React.Component {
 
   onLogOut = (e) =>{
     console.log("Logging Out")
+  }
+
+  editProfileInputs = (e) => {
+    console.log("edit inputs")
   }
 
   render() {
@@ -35,8 +40,22 @@ export default class HomeScreen extends React.Component {
               }
               style={styles.welcomeImage}
             />
-            <Button style ={styles.button}
-              onpress={this.onLogOut}
+          </View>
+          <View style={styles.editProfile}>
+            <Button
+              style={styles.editProfileButton}
+              onPress={this.editProfileInputs}
+              title="Edit"
+            />
+          </View>
+          <View style={styles.aboutContainer}>
+            <Text style={styles.about}>UserName: Bobbert</Text>
+            <Text style={styles.about}>First Name: Rob</Text>
+            <Text style={styles.about}>Last Name: Hill</Text>
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              onPress={this.onLogOut}
               title="Log Out"
             />
           </View>
@@ -53,13 +72,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
   contentContainer: {
     paddingTop: 30,
   },
@@ -75,8 +87,29 @@ const styles = StyleSheet.create({
     marginTop: 3,
     marginLeft: -10,
   },
+  buttonContainer: {
+    padding: 10,
+    width: '75%',
+  },
   button: {
-    fontSize: 40
+    fontSize: 1,
+  },
+  aboutContainer: {
+    flex: 1,
+    flexDirection: 'column',
+  },
+  about:{
+    fontSize: 25,
+    paddingTop: 10
+  },
+  editProfile:{
+    width: '100%',
+    paddingRight: 25
+  },
+  editProfileButton:{
+    flexDirection:'column',
+    alignItems: 'flex-end',
+
   }
 
 });
