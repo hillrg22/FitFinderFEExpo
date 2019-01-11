@@ -47,6 +47,7 @@ export default class HomeScreen extends React.Component {
         buttonStyle:{
           borderRadius: 5
         },
+        containerStyle:{overflow:'hidden', borderRadius:6},
         raised: true,
       },
       Avatar: {
@@ -63,16 +64,15 @@ export default class HomeScreen extends React.Component {
       <ThemeProvider theme={theme}>
         <View style={styles.container}>
           <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-            <View style={styles.welcomeContainer}>
+            <View style={styles.avatarContainer}>
               <Avatar
                 source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"}}
               />
             </View>
-            <View style={styles.editProfile}>
+            <View >
               <Button
-                style={{flexDirection:'column',
-                alignItems: 'flex-end',
-                width: 100,}}
+                buttonStyle={{backgroundColor:'#a6a6a8'}}
+                // style={{containerStyle:{backgroundColor:'#a6a6a8'}}}
                 onPress={this.editProfileInputs}
                 title="Edit"
               />
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 30,
   },
-  welcomeContainer: {
+  avatarContainer: {
     alignItems: 'center',
     marginTop: 10,
     marginBottom: 20,
@@ -132,9 +132,5 @@ const styles = StyleSheet.create({
   about:{
     fontSize: 25,
     paddingTop: 10
-  },
-  editProfile:{
-    width: '100%',
-    paddingRight: 25
   },
 });
