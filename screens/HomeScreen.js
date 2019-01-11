@@ -8,15 +8,28 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import {Button} from 'react-native-elements'
+import {Button, ThemeProvider, Avatar} from 'react-native-elements'
 import {Icon} from 'react-native-vector-icons/FontAwesome'
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
+
+
+
+
+
   static navigationOptions = {
-    header: null,
+    title: 'My Profile',
+    headerStyle: {
+      backgroundColor: '#8e2727',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+      fontSize: 21,
+    },
   };
 
   onLogOut = (e) =>{
@@ -28,39 +41,57 @@ export default class HomeScreen extends React.Component {
   }
 
   render() {
+    const theme = {
+      Button: {
+        titleStyle: {
+          color: 'black',
+          backgroundColor: '#8e2727',
+          width: '100%',
+        },
+        buttonStyle:{
+          borderRadius: 5
+        }, 
+        raised: true,
+      },
+      Avatar: {
+        size: "xlarge",
+        rounded: true,
+        activeOpacity:0.7,
+      },
+      Badge: {
+        textStyle: { fontSize: 30 },
+      },
+    };
+
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
-            />
-          </View>
-          <View style={styles.editProfile}>
-            <Button
-              style={styles.editProfileButton}
-              onPress={this.editProfileInputs}
-              title="Edit"
-            />
-          </View>
-          <View style={styles.aboutContainer}>
-            <Text style={styles.about}>UserName: Bobbert</Text>
-            <Text style={styles.about}>First Name: Rob</Text>
-            <Text style={styles.about}>Last Name: Hill</Text>
-          </View>
-          <View style={styles.buttonContainer}>
-            <Button
-              onPress={this.onLogOut}
-              title="Log Out"
-            />
-          </View>
-        </ScrollView>
-      </View>
+      <ThemeProvider theme={theme}>
+        <View style={styles.container}>
+          <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+            <View style={styles.welcomeContainer}>
+              <Avatar/>
+            </View>
+            <View style={styles.editProfile}>
+              <Button
+                style={styles.editProfileButton}
+                onPress={this.editProfileInputs}
+                title="Edit"
+              />
+            </View>
+            <View style={styles.aboutContainer}>
+              <Text style={styles.about}>UserName: Bobbert</Text>
+              <Text style={styles.about}>First Name: Rob</Text>
+              <Text style={styles.about}>Last Name: Hill</Text>
+            </View>
+            <View style={styles.buttonContainer}>
+              <Button
+                raised= {true}
+                onPress={this.onLogOut}
+                title="Log Out"
+              />
+            </View>
+          </ScrollView>
+        </View>
+      </ThemeProvider>
     );
   }
 
@@ -70,7 +101,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#21284f',
+    backgroundColor: '#1c4166',
   },
   contentContainer: {
     paddingTop: 30,
@@ -91,9 +122,6 @@ const styles = StyleSheet.create({
     padding: 10,
     width: '75%',
   },
-  button: {
-    fontSize: 1,
-  },
   aboutContainer: {
     flex: 1,
     flexDirection: 'column',
@@ -109,6 +137,7 @@ const styles = StyleSheet.create({
   editProfileButton:{
     flexDirection:'column',
     alignItems: 'flex-end',
+    width: 100,
 
   }
 
