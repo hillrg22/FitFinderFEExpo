@@ -1,18 +1,10 @@
 import React from 'react';
 import {
-  Image,
-  Platform,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-  Input
-} from 'react-native';
+  Image, Platform, StyleSheet,Text, TouchableOpacity, View,Input} from 'react-native';
 import {Button, Input} from 'react-native-elements'
+import { WebBrowser } from 'expo';
 
-import Colors from '../constants/Colors';
-
-export default class TabBarIcon extends React.Component {
+class Measurements extends React.Component {
   constructor(props){
   super(props)
     this.state={
@@ -40,3 +32,6 @@ export default class TabBarIcon extends React.Component {
     );
   }
 }
+
+
+export default Measurements
