@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet, View } from 'react-native';
 import { ExpoLinksView } from '@expo/samples';
 
 export default class ShopScreen extends React.Component {
@@ -9,10 +9,15 @@ export default class ShopScreen extends React.Component {
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        {/* Go ahead and delete ExpoLinksView and replace it with your
-           * content, we just wanted to provide you with some helpful links */}
-        <ExpoLinksView />
+      <ScrollView contentContainerStyle={{
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'stretch',
+      }}>
+        <View style={{width: 50, height: 50, backgroundColor: 'powderblue'}} />
+        <View style={{height: 50, backgroundColor: 'skyblue'}} />
+        <View style={{height: 100, backgroundColor: 'steelblue'}} />
       </ScrollView>
     );
   }
