@@ -16,10 +16,6 @@ import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
 
-
-
-
-
   static navigationOptions = {
     title: 'My Profile',
     headerStyle: {
@@ -49,7 +45,6 @@ export default class HomeScreen extends React.Component {
           width: '100%',
         },
         buttonStyle:{
-
           borderRadius: 5
         },
         raised: true,
@@ -75,7 +70,9 @@ export default class HomeScreen extends React.Component {
             </View>
             <View style={styles.editProfile}>
               <Button
-                style={styles.editProfileButton}
+                style={{flexDirection:'column',
+                alignItems: 'flex-end',
+                width: 100,}}
                 onPress={this.editProfileInputs}
                 title="Edit"
               />
@@ -91,6 +88,13 @@ export default class HomeScreen extends React.Component {
                 onPress={this.onLogOut}
                 title="Log Out"
                 buttonStyle={{borderRadius:5}}
+              />
+            </View>
+            <View style={styles.buttonContainer}>
+              <Button
+                raised= {true}
+                onPress={null}
+                title="My Measurements"
               />
             </View>
           </ScrollView>
@@ -115,13 +119,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 20,
   },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
   buttonContainer: {
     padding: 10,
     width: '75%',
@@ -138,11 +135,4 @@ const styles = StyleSheet.create({
     width: '100%',
     paddingRight: 25
   },
-  editProfileButton:{
-    flexDirection:'column',
-    alignItems: 'flex-end',
-    width: 100,
-
-  }
-
 });
