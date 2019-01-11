@@ -84,19 +84,21 @@ export default class HomeScreen extends React.Component {
             </View>
             <View style={styles.buttonContainer}>
               <Button
+                containerStyle={{overflow:'hidden', borderRadius:6}}
+                raised= {true}
+                onPress={null}
+                title="My Measurements"
+              />
+            </View>
+            <View style={styles.buttonContainer}>
+              <Button
                 raised= {true}
                 onPress={this.onLogOut}
                 title="Log Out"
                 buttonStyle={{borderRadius:5}}
               />
             </View>
-            <View style={styles.buttonContainer}>
-              <Button
-                raised= {true}
-                onPress={null}
-                title="My Measurements"
-              />
-            </View>
+
           </ScrollView>
         </View>
       </ThemeProvider>
