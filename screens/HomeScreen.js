@@ -49,8 +49,9 @@ export default class HomeScreen extends React.Component {
           width: '100%',
         },
         buttonStyle:{
+
           borderRadius: 5
-        }, 
+        },
         raised: true,
       },
       Avatar: {
@@ -68,7 +69,9 @@ export default class HomeScreen extends React.Component {
         <View style={styles.container}>
           <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
             <View style={styles.welcomeContainer}>
-              <Avatar/>
+              <Avatar
+                source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"}}
+              />
             </View>
             <View style={styles.editProfile}>
               <Button
@@ -87,6 +90,7 @@ export default class HomeScreen extends React.Component {
                 raised= {true}
                 onPress={this.onLogOut}
                 title="Log Out"
+                buttonStyle={{borderRadius:5}}
               />
             </View>
           </ScrollView>
