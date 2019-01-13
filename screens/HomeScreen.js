@@ -14,7 +14,7 @@ import {Icon} from 'react-native-vector-icons/FontAwesome'
 import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
-import Measurements from '../components/Measurements';
+// import Measurements from '../components/Measurements';
 
 export default class HomeScreen extends React.Component {
 

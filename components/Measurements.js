@@ -1,17 +1,17 @@
 import React from 'react';
 import {
   Image, Platform, StyleSheet,Text, TouchableOpacity, View,Input} from 'react-native';
-import {Button, Input} from 'react-native-elements'
+import {Button} from 'react-native-elements'
 import { WebBrowser } from 'expo';
 
 class Measurements extends React.Component {
   constructor(props){
   super(props)
     this.state={
-      height: ,
-      waist: ,
-      chest: ,
-      foot: ,
+      height: null,
+      waist: null,
+      chest: null,
+      foot: null,
       }
     }
 
