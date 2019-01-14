@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Image, Platform, StyleSheet,Text, TouchableOpacity, View} from 'react-native';
+  Image, Platform, StyleSheet,Text, TouchableOpacity, View, Picker} from 'react-native';
 import {Button, Input} from 'react-native-elements'
 import { WebBrowser } from 'expo';
 
@@ -15,19 +15,37 @@ class Measurements extends React.Component {
       }
     }
 
+    saveMeasurementsButtonClicked = (e) => {
+      this.setState({measurementsClicked: !this.state.measurementsClicked})
+    }
+
   render() {
     return (
       <View>
+
         <Input
-          title="Height"
-          placeHolder= "Hello"
+          placeholder= "Please Input Your Waist Size (in)"
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.waist}
+        />
+        <Input
+          placeholder= "Please Input Your Height (in)"
           onChangeText={(text) => this.setState({text})}
           value= {this.state.height}
         />
         <Input
-          title="Waist"
+          placeholder= "Please Input Your Chest Size (in)"
           onChangeText={(text) => this.setState({text})}
           value={this.state.waist}
+        />
+        <Input
+          placeholder= "Please Input Your Foot Length (cm)"
+          onChangeText={(text) => this.setState({text})}
+          value={this.state.waist}
+        />
+        <Button
+          title = "Save"
+          onPress = {this.saveMeasurementsButtonClicked}
         />
       </View>
     );

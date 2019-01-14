@@ -17,6 +17,12 @@ import { MonoText } from '../components/StyledText';
 import Measurements from '../components/Measurements';
 
 export default class HomeScreen extends React.Component {
+  constructor(props){
+  super(props)
+    this.state={
+      measurementsClicked:false
+    }
+  }
 
   static navigationOptions = {
     title: 'My Profile',
@@ -37,6 +43,12 @@ export default class HomeScreen extends React.Component {
   editProfileInputs = (e) => {
     console.log("edit inputs")
   }
+
+  measurementsButtonClicked = (e) => {
+    this.setState({measurementsClicked: !this.state.measurementsClicked})
+  }
+
+
 
   render() {
     const theme = {
@@ -85,14 +97,7 @@ export default class HomeScreen extends React.Component {
               <Text style={styles.about}>First Name: Rob</Text>
               <Text style={styles.about}>Last Name: Hill</Text>
             </View>
-            <View style={styles.buttonContainer}>
-              <Button
-                containerStyle={{overflow:'hidden', borderRadius:6}}
-                raised= {true}
-                onPress={null}
-                title="My Measurements"
-              />
-            </View>
+
             <View style={styles.buttonContainer}>
               <Button
                 raised= {true}
@@ -101,8 +106,16 @@ export default class HomeScreen extends React.Component {
                 buttonStyle={{borderRadius:5}}
               />
             </View>
+            <View style={styles.buttonContainer}>
+              <Button
+                containerStyle={{overflow:'hidden', borderRadius:6}}
+                raised= {true}
+                onPress={this.measurementsButtonClicked}
+                title="My Measurements"
+              />
+            </View>
             <View>
-            <Measurements />
+            {this.state.measurementsClicked ? <Measurements /> : null}
             </View>
           </ScrollView>
         </View>
@@ -136,6 +149,7 @@ const styles = StyleSheet.create({
   },
   about:{
     fontSize: 25,
-    paddingTop: 10
+    paddingTop: 10,
+    justifyContent: 'center'
   },
 });
