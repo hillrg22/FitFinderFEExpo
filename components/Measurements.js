@@ -1,7 +1,7 @@
 import React from 'react';
 import {
-  Image, Platform, StyleSheet,Text, TouchableOpacity, View,Input} from 'react-native';
-import {Button} from 'react-native-elements'
+  Image, Platform, StyleSheet,Text, TouchableOpacity, View} from 'react-native';
+import {Button, Input} from 'react-native-elements'
 import { WebBrowser } from 'expo';
 
 class Measurements extends React.Component {
@@ -20,6 +20,7 @@ class Measurements extends React.Component {
       <View>
         <Input
           title="Height"
+          placeHolder= "Hello"
           onChangeText={(text) => this.setState({text})}
           value= {this.state.height}
         />

@@ -6,7 +6,7 @@ export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: 'Settings',
     headerStyle: {
-      backgroundColor: '#8e2727',
+      backgroundColor: '#1c4166',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
@@ -32,6 +32,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#a6a6a8',
+    backgroundColor: '#FFF',
   },
 });

@@ -21,7 +21,7 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'My Profile',
     headerStyle: {
-      backgroundColor: '#8e2727',
+      backgroundColor: '#1c4166',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
@@ -43,7 +43,7 @@ export default class HomeScreen extends React.Component {
       Button: {
         titleStyle: {
           color: 'black',
-          backgroundColor: '#8e2727',
+          backgroundColor: '#a05000',
           width: '100%',
         },
         buttonStyle:{
@@ -69,6 +69,7 @@ export default class HomeScreen extends React.Component {
             <View style={styles.avatarContainer}>
               <Avatar
                 source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"}}
+                onPress ={() => console.log("Works!")}
               />
             </View>
             <View >
@@ -100,7 +101,9 @@ export default class HomeScreen extends React.Component {
                 buttonStyle={{borderRadius:5}}
               />
             </View>
-
+            <View>
+            <Measurements />
+            </View>
           </ScrollView>
         </View>
       </ThemeProvider>
@@ -113,7 +116,7 @@ export default class HomeScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#1c4166',
+    backgroundColor: '#FFF',
   },
   contentContainer: {
     paddingTop: 30,

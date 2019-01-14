@@ -64,7 +64,7 @@ export default class ShopScreen extends React.Component {
 
   render() {
     const clothingList = this.state.clothing.map(article =>{
-      return <View style={styles.clothingItem}>
+      return <View key= {article.id} style={styles.clothingItem}>
                 <Avatar
                   size="xlarge"
                   rounded= {false}
