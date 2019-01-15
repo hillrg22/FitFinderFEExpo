@@ -26,7 +26,9 @@ export default class HomeScreen extends React.Component {
       heightInput: null,
       waistInput: null,
       chestInput: null,
+      inseamInput: null,
       footInput: null,
+      neckInput: null,
     }
   }
 
@@ -50,7 +52,9 @@ export default class HomeScreen extends React.Component {
     console.log("edit inputs")
   }
 
-  
+  onInputChange = (e) => {
+    console.log(e)
+  }
 
   measurementsButtonClicked = (e) => {
     this.setState({measurementsClicked: !this.state.measurementsClicked})
@@ -70,15 +74,15 @@ export default class HomeScreen extends React.Component {
           username: this.state.userInfo.username,
           dob: this.state.userInfo.dob,
           sex: this.state.userInfo.sex,
-          height_in: ,
-          waist_in: 30,
-          inseam_in: 29,
-          neck_in: 15.5,
-          chest_in: 38,
-          shoe_size_cm: 26,
-          prof_img_url: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=face-facial-hair-fine-looking-614810.jpg&fm=jpg'
-        },
-      })
+          height_in: this.state.heightInput,
+          waist_in: this.state.waistInput,
+          inseam_in: this.state.inseamInput,
+          neck_in: this.state.neckInput,
+          chest_in: this.state.chestInput,
+          shoe_size_cm: this.state.footInput,
+          prof_img_url: this.state.userInfo.prof_img_url,
+        }
+      )
     })
   }
 
@@ -146,7 +150,7 @@ export default class HomeScreen extends React.Component {
                 />
               </View>
               <View>
-              {this.state.measurementsClicked ? <Measurements saveMeasurementsButtonClicked = {this.saveMeasurementsButtonClicked}/> : null}
+              {this.state.measurementsClicked ? <Measurements onInputChange = {this.onInputChange} saveMeasurementsButtonClicked = {this.saveMeasurementsButtonClicked} waistInput = {this.state.waistInput} heightInput = {this.state.heightInput} chestInput = {this.state.chestInput} inseamInput = {this.state.inseamInput} footInput = {this.state.footInput}/> : null}
               </View>
             </ScrollView>
           </View>
@@ -168,8 +172,11 @@ const styles = StyleSheet.create({
   },
   avatarContainer: {
     alignItems: 'center',
+    paddingTop: 30,
+    paddingBottom: 30,
     marginTop: 10,
     marginBottom: 20,
+    backgroundColor: '#858b96',
   },
   buttonContainer: {
     padding: 10,
