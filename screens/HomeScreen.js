@@ -21,7 +21,12 @@ export default class HomeScreen extends React.Component {
   constructor(props){
   super(props)
     this.state={
-      measurementsClicked:false
+      measurementsClicked:false,
+      userInfo:{} ,
+      heightInput: null,
+      waistInput: null,
+      chestInput: null,
+      footInput: null,
     }
   }
 
@@ -45,12 +50,36 @@ export default class HomeScreen extends React.Component {
     console.log("edit inputs")
   }
 
+  
+
   measurementsButtonClicked = (e) => {
     this.setState({measurementsClicked: !this.state.measurementsClicked})
   }
 
   saveMeasurementsButtonClicked = (e) => {
     this.setState({measurementsClicked: !this.state.measurementsClicked})
+
+    fetch('http://localhost:3000/users', {
+      method: 'PUT',
+      headers: {
+        "content-type":"application/json"
+      },
+      body: JSON.stringify({
+          first_name: this.state.userInfo.first_name,
+          last_name: this.state.userInfo.last_name,
+          username: this.state.userInfo.username,
+          dob: this.state.userInfo.dob,
+          sex: this.state.userInfo.sex,
+          height_in: ,
+          waist_in: 30,
+          inseam_in: 29,
+          neck_in: 15.5,
+          chest_in: 38,
+          shoe_size_cm: 26,
+          prof_img_url: 'https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=face-facial-hair-fine-looking-614810.jpg&fm=jpg'
+        },
+      })
+    })
   }
 
   render() {
@@ -88,20 +117,18 @@ export default class HomeScreen extends React.Component {
                   onPress ={() => console.log("Works!")}
                 />
               </View>
-              <View >
-                <Button
-                  buttonStyle={{backgroundColor:'#a6a6a8'}}
-                  // style={{containerStyle:{backgroundColor:'#a6a6a8'}}}
-                  onPress={this.editProfileInputs}
-                  title="Edit"
-                />
-              </View>
               <View style={styles.aboutContainer}>
                 <Text style={styles.about}>UserName: Bobbert</Text>
                 <Text style={styles.about}>First Name: Rob</Text>
                 <Text style={styles.about}>Last Name: Hill</Text>
               </View>
-
+              <View >
+                <Button
+                  buttonStyle={{backgroundColor:'#a6a6a8'}}
+                  onPress={this.editProfileInputs}
+                  title="Edit"
+                />
+              </View>
               <View style={styles.buttonContainer}>
                 <Button
                   raised= {true}
@@ -146,6 +173,7 @@ const styles = StyleSheet.create({
   },
   buttonContainer: {
     padding: 10,
+    paddingLeft: 100,
     width: '75%',
   },
   aboutContainer: {

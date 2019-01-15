@@ -5,16 +5,6 @@ import {Button, Input} from 'react-native-elements'
 import { WebBrowser } from 'expo';
 
 class Measurements extends React.Component {
-  constructor(props){
-  super(props)
-    this.state={
-      height: null,
-      waist: null,
-      chest: null,
-      foot: null,
-      }
-    }
-
   render() {
     return (
       <View>
