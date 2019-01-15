@@ -22,12 +22,13 @@ export default class AuthScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Button title="Sign in!"/>
+        <Button title="Sign in!" />
       </View>
     );
   }
+ }
 
-}
+
 
 const styles = StyleSheet.create({
   container: {
