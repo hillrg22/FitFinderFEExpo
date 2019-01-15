@@ -15,10 +15,6 @@ class Measurements extends React.Component {
       }
     }
 
-    saveMeasurementsButtonClicked = (e) => {
-      this.setState({measurementsClicked: !this.state.measurementsClicked})
-    }
-
   render() {
     return (
       <View>
@@ -45,7 +41,7 @@ class Measurements extends React.Component {
         />
         <Button
           title = "Save"
-          onPress = {this.saveMeasurementsButtonClicked}
+          onPress = {this.props.saveMeasurementsButtonClicked}
         />
       </View>
     );
