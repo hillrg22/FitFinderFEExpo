@@ -47,13 +47,13 @@ const styles = StyleSheet.create({
   },
 });
 
-const AppStack = createStackNavigator({ Home: HomeScreen});
+
 const AuthStack = createStackNavigator({ Auth: AuthScreen});
 
 export default createAppContainer(createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
-    App: AppStack,
+    
     Auth: AuthStack,
   },
   {
