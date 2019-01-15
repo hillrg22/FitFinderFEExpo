@@ -15,9 +15,9 @@ import { WebBrowser } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 
-export default class AuthScreen extends React.Component {
+export default class SignUpScreen extends React.Component {
   static navigationOptions = {
-    title: "Please Sign In"
+    title: "Please Sign Up"
   };
 
   render() {
@@ -53,22 +53,16 @@ export default class AuthScreen extends React.Component {
         <View style={styles.container}>
           <Input placeholder= "Username" />
           <Input placeholder= "Password" />
-          <Button style={styles.button} title="Sign In!" titleStyle={{ color: "#fff" }} onPress={this.signIn}  />
-          <Text>Don't Have An Account?</Text>
-          <Button style={styles.button2} title="Sign Up!" titleStyle={{ color: "#fff" }} onPress={this.signUp}  />
+          <Input placeholder= "Confirm Password" />
+          <Button style={styles.button} title="Sign Up!" titleStyle={{ color: "#fff" }}  />
         </View>
       </ThemeProvider>
     );
   }
 
-
   signUp = () => {
-      this.props.navigation.navigate('SignUp');
+      this.props.navigation.navigate('HomeScreen');
     };
-
-  signIn = () => {
-    this.props.navigation.navigate('Home')
-  }
 
  }
 
@@ -82,12 +76,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    padding: 65
-  },
-  button2: {
-    padding: 10,
-    paddingLeft: 65,
-    paddingRight: 65
-
+    padding: 80
   }
 });
