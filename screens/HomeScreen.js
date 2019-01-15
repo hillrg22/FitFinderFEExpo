@@ -50,10 +50,11 @@ export default class HomeScreen extends React.Component {
 
   editProfileInputs = (e) => {
     console.log("edit inputs")
+
   }
 
   onInputChange = (e) => {
-    console.log(e)
+    console.log(e.target.name)
   }
 
   measurementsButtonClicked = (e) => {
@@ -69,18 +70,12 @@ export default class HomeScreen extends React.Component {
         "content-type":"application/json"
       },
       body: JSON.stringify({
-          first_name: this.state.userInfo.first_name,
-          last_name: this.state.userInfo.last_name,
-          username: this.state.userInfo.username,
-          dob: this.state.userInfo.dob,
-          sex: this.state.userInfo.sex,
           height_in: this.state.heightInput,
           waist_in: this.state.waistInput,
           inseam_in: this.state.inseamInput,
           neck_in: this.state.neckInput,
           chest_in: this.state.chestInput,
           shoe_size_cm: this.state.footInput,
-          prof_img_url: this.state.userInfo.prof_img_url,
         }
       )
     })
@@ -122,7 +117,6 @@ export default class HomeScreen extends React.Component {
                 />
               </View>
               <View style={styles.aboutContainer}>
-                <Text style={styles.about}>UserName: Bobbert</Text>
                 <Text style={styles.about}>First Name: Rob</Text>
                 <Text style={styles.about}>Last Name: Hill</Text>
               </View>
