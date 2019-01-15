@@ -53,8 +53,10 @@ export default class HomeScreen extends React.Component {
 
   }
 
-  onInputChange = (e) => {
-    console.log(e.target.name)
+  onInputChange = (key,value) => {
+    // this.setState({[key]: value} )
+    console.log( this)
+    //set state to
   }
 
   measurementsButtonClicked = (e) => {

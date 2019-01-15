@@ -11,7 +11,8 @@ import { createStackNavigator, createSwitchNavigator, createAppContainer } from 
 
 
 import AuthScreen from '../screens/AuthScreen'
-
+import SignUpScreen from '../screens/SignUpScreen'
+import HomeScreen from '../screens/HomeScreen'
 
 class AuthLoadingScreen extends React.Component {
   constructor() {
@@ -48,12 +49,12 @@ const styles = StyleSheet.create({
 });
 
 
-const AuthStack = createStackNavigator({ Auth: AuthScreen});
+const AuthStack = createStackNavigator({ Auth: AuthScreen, SignUp: SignUpScreen});
 
 export default createAppContainer(createSwitchNavigator(
   {
     AuthLoading: AuthLoadingScreen,
-    
+
     Auth: AuthStack,
   },
   {

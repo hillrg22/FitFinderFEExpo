@@ -54,14 +54,15 @@ export default class SignUpScreen extends React.Component {
           <Input placeholder= "Username" />
           <Input placeholder= "Password" />
           <Input placeholder= "Confirm Password" />
-          <Button style={styles.button} title="Sign Up!" titleStyle={{ color: "#fff" }}  />
+          <Button style={styles.button} title="Sign Up" titleStyle={{ color: "#fff" }} onPress={this.signUp}  />
         </View>
       </ThemeProvider>
     );
   }
 
   signUp = () => {
-      this.props.navigation.navigate('HomeScreen');
+      console.log("signing up")
+      this.props.navigation.navigate('Home');
     };
 
  }

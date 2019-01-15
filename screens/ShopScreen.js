@@ -1,7 +1,8 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Text} from 'react-native';
+import { ScrollView, StyleSheet, View, Text, ImageBackground} from 'react-native';
 import { Avatar } from 'react-native-elements'
-import { ExpoLinksView } from '@expo/samples';
+import { Icon } from 'expo';
+import Colors from '../constants/Colors';
 
 export default class ShopScreen extends React.Component {
   static navigationOptions = {
@@ -61,17 +62,30 @@ export default class ShopScreen extends React.Component {
         }],
       }
     }
-
+    // <Avatar
+    //   size="xlarge"
+    //   rounded= {false}
+    //   source={{uri: article.img_url}}
+    //   onPress={() => console.log("Works!")}
+    //   activeOpacity={0.6}
+    // />
   render() {
     const clothingList = this.state.clothing.map(article =>{
       return <View key= {article.id} style={styles.clothingItem}>
-                <Avatar
-                  size="xlarge"
-                  rounded= {false}
+                <ImageBackground
                   source={{uri: article.img_url}}
-                  onPress={() => console.log("Works!")}
-                  activeOpacity={0.6}
-                />
+                  style={{width: '100%', height: '90%'}}
+                >
+                    <View>
+                    <Icon.Ionicons
+                      name='ios-heart'
+                      size={33}
+                      style={{ marginLeft: 10 }}
+                      color={this.props.focused ? '#a05000' : Colors.tabIconDefault}
+
+                    />
+                    </View>
+                </ImageBackground>
                 <Text>{article.name}</Text>
              </View>
     })
@@ -94,7 +108,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   clothingItem: {
-    height: 200,
+    height: 250,
     width: 200
   }
 });
