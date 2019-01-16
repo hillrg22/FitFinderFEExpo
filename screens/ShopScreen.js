@@ -63,35 +63,42 @@ export default class ShopScreen extends React.Component {
         favorited_ids: [2,4],
       }
     }
-  // onFavoritedPressed = () => {
-  //   let currentId =
-  //   if (this.state.favorited_ids.includes(currentId)){
-  //      this.state.favorited_ids.delete(currentId)
-  //    }
-  //
-  //   else{this.state({favorited_ids}).push(currentId)}
-  // }
+  onFavoritedPressed = (id) => {
+    let currentId = id
+    if (this.state.favorited_ids.includes(currentId)){
+       const result = this.state.favorited_ids.filter(item => item.id !== currentId)
+       this.setState({favorited_ids: result})
+   // need to fix 
+       return result
+     }
+   //need to fix
+    else{this.state.favorited_ids.push(currentId)}
+  }
 
+  onPressClothingItem = (key) => {
+    console.log("pressed id", key)
+  }
 
   render() {
 
     const clothingList = this.state.clothing.map(article =>{
       const iconColor = this.state.favorited_ids.includes(article.id) ? '#a05000' : '#a6a6a8'
       return <View key= {article.id} style={styles.clothingItem}>
-                <ImageBackground
-                  source={{uri: article.img_url}}
-                  style={{width: '100%', height: '93%'}}
-                >
-                    <TouchableOpacity onPress={this.onFavoritedPressed} >
-                    <Icon.Ionicons
-                      name='ios-heart'
-                      size={33}
-                      style={{ marginLeft: 10 }}
-                      color={iconColor}
-
-                    />
-                  </TouchableOpacity>
-                </ImageBackground>
+                <TouchableOpacity onPress={() => {this.onPressClothingItem(article.id)}}>
+                  <ImageBackground
+                    source={{uri: article.img_url}}
+                    style={{width: '100%', height: '93%'}}
+                  >
+                      <TouchableOpacity onPress={() =>{this.onFavoritedPressed(article.id)}} >
+                        <Icon.Ionicons
+                          name='ios-heart'
+                          size={33}
+                          style={{ marginLeft: 10 }}
+                          color={iconColor}
+                        />
+                    </TouchableOpacity>
+                  </ImageBackground>
+                </TouchableOpacity>
                 <View >
                   <Text >{article.name}</Text>
                 </View>
