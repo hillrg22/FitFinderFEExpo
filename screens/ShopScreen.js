@@ -68,7 +68,7 @@ export default class ShopScreen extends React.Component {
     if (this.state.favorited_ids.includes(currentId)){
        const result = this.state.favorited_ids.filter(item => item.id !== currentId)
        this.setState({favorited_ids: result})
-   // need to fix 
+   // need to fix
        return result
      }
    //need to fix
@@ -77,6 +77,7 @@ export default class ShopScreen extends React.Component {
 
   onPressClothingItem = (key) => {
     console.log("pressed id", key)
+    this.props.navigation.navigate('IndividualItem')
   }
 
   render() {
