@@ -17,6 +17,7 @@ import { WebBrowser } from 'expo';
 import { MonoText } from '../components/StyledText';
 import Measurements from '../components/Measurements';
 
+console.disableYellowBox = true
 export default class HomeScreen extends React.Component {
   constructor(props){
   super(props)

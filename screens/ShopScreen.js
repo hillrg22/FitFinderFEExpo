@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Text, ImageBackground} from 'react-native';
+import { ScrollView, StyleSheet, View, Text, ImageBackground, TouchableOpacity} from 'react-native';
 import { Avatar } from 'react-native-elements'
 import { Icon } from 'expo';
 import Colors from '../constants/Colors';
@@ -60,33 +60,41 @@ export default class ShopScreen extends React.Component {
           img_url: 'https://s7d9.scene7.com/is/image/LuckyBrandJeans/7MD10316_420_1?$hi-res$',
           sex: 'male'
         }],
+        favorited_ids: [2,4],
       }
     }
-    // <Avatar
-    //   size="xlarge"
-    //   rounded= {false}
-    //   source={{uri: article.img_url}}
-    //   onPress={() => console.log("Works!")}
-    //   activeOpacity={0.6}
-    // />
+  // onFavoritedPressed = () => {
+  //   let currentId =
+  //   if (this.state.favorited_ids.includes(currentId)){
+  //      this.state.favorited_ids.delete(currentId)
+  //    }
+  //
+  //   else{this.state({favorited_ids}).push(currentId)}
+  // }
+
+
   render() {
+
     const clothingList = this.state.clothing.map(article =>{
+      const iconColor = this.state.favorited_ids.includes(article.id) ? '#a05000' : '#a6a6a8'
       return <View key= {article.id} style={styles.clothingItem}>
                 <ImageBackground
                   source={{uri: article.img_url}}
-                  style={{width: '100%', height: '90%'}}
+                  style={{width: '100%', height: '93%'}}
                 >
-                    <View>
+                    <TouchableOpacity onPress={this.onFavoritedPressed} >
                     <Icon.Ionicons
                       name='ios-heart'
                       size={33}
                       style={{ marginLeft: 10 }}
-                      color={this.props.focused ? '#a05000' : Colors.tabIconDefault}
+                      color={iconColor}
 
                     />
-                    </View>
+                  </TouchableOpacity>
                 </ImageBackground>
-                <Text>{article.name}</Text>
+                <View >
+                  <Text >{article.name}</Text>
+                </View>
              </View>
     })
     return (
@@ -106,9 +114,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
+
   },
   clothingItem: {
     height: 250,
-    width: 200
+    width: 200,
+    paddingBottom:15,
   }
 });
