@@ -52,7 +52,7 @@ export default class AuthScreen extends React.Component {
       <ThemeProvider theme={theme}>
         <View style={styles.container}>
           <Input placeholder= "Username" />
-          <Input placeholder= "Password" />
+          <Input placeholder= "Password" secureTextEntry= {true} />
           <Button style={styles.button} title="Sign In!" titleStyle={{ color: "#fff" }} onPress={this.signIn}  />
           <Text>Don't Have An Account?</Text>
           <Button style={styles.button2} title="Sign Up!" titleStyle={{ color: "#fff" }} onPress={this.signUp}  />

@@ -52,8 +52,8 @@ export default class SignUpScreen extends React.Component {
       <ThemeProvider theme={theme}>
         <View style={styles.container}>
           <Input placeholder= "Username" />
-          <Input placeholder= "Password" />
-          <Input placeholder= "Confirm Password" />
+          <Input placeholder= "Password" secureTextEntry = {true} />
+          <Input placeholder= "Confirm Password" secureTextEntry = {true} />
           <Button style={styles.button} title="Sign Up" titleStyle={{ color: "#fff" }} onPress={this.signUp}  />
         </View>
       </ThemeProvider>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native'
+import { View, Text, StyleSheet, ScrollView } from 'react-native'
 import { Avatar } from 'react-native-elements'
 
 
@@ -79,7 +79,7 @@ export default class FavoritesScreen extends React.Component {
       const mapped = filteredFavs.map(item =>{
         console.log(item)
         return(
-          <View key = {item.id}>
+          <View key = {item.id} style = {styles.clothingItem}>
             <Avatar
               size= "xlarge"
               rounded = {false}
@@ -96,9 +96,9 @@ export default class FavoritesScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <ScrollView contentContainerStyle={styles.container}>
         {this.favoritesChecker()}
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -109,6 +109,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 15,
-    backgroundColor: '#FFF',
+    backgroundColor:'#f7f2ed',
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+
   },
+  clothingItem: {
+    height: 250,
+    width: 200,
+    paddingBottom:15,
+  }
 });
