@@ -40,6 +40,7 @@ class Measurements extends React.Component {
           value={this.props.footInput}
         />
         <Button
+          style = {styles.buttonContainer}
           title = "Save"
           onPress = {this.props.saveMeasurementsButtonClicked}
         />
@@ -48,5 +49,12 @@ class Measurements extends React.Component {
   }
 }
 
+const styles = StyleSheet.create({
+  buttonContainer: {
+    padding: 10,
+    paddingLeft: 100,
+    width: '75%',
+  },
+})
 
 export default Measurements

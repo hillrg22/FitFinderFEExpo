@@ -113,29 +113,21 @@ export default class HomeScreen extends React.Component {
         <ThemeProvider theme={theme}>
           <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
+              <View style={styles.aboutContainer}>
+                <Text style={styles.about}>Welcome, Rob!</Text>
+              </View>
               <View style={styles.avatarContainer}>
                 <Avatar
                   source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"}}
                   onPress ={() => console.log("Works!")}
                 />
               </View>
-              <View style={styles.aboutContainer}>
-                <Text style={styles.about}>First Name: Rob</Text>
-                <Text style={styles.about}>Last Name: Hill</Text>
-              </View>
+
               <View >
                 <Button
                   buttonStyle={{backgroundColor:'#a6a6a8'}}
                   onPress={this.editProfileInputs}
                   title="Edit"
-                />
-              </View>
-              <View style={styles.buttonContainer}>
-                <Button
-                  raised= {true}
-                  onPress={this.onLogOut}
-                  title="Log Out"
-                  buttonStyle={{borderRadius:5}}
                 />
               </View>
               <View style={styles.buttonContainer}>
@@ -148,6 +140,14 @@ export default class HomeScreen extends React.Component {
               </View>
               <View>
               {this.state.measurementsClicked ? <Measurements onInputChange = {this.onInputChange} saveMeasurementsButtonClicked = {this.saveMeasurementsButtonClicked} waistInput = {this.state.waistInput} heightInput = {this.state.heightInput} chestInput = {this.state.chestInput} inseamInput = {this.state.inseamInput} footInput = {this.state.footInput}/> : null}
+              </View>
+              <View style={styles.buttonContainer}>
+                <Button
+                  raised= {true}
+                  onPress={this.onLogOut}
+                  title="Log Out"
+                  buttonStyle={{borderRadius:5}}
+                />
               </View>
             </ScrollView>
           </View>
@@ -183,10 +183,12 @@ const styles = StyleSheet.create({
   aboutContainer: {
     flex: 1,
     flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   about:{
     fontSize: 25,
     paddingTop: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
 });
