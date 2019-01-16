@@ -19,10 +19,13 @@ export default class FavoritesScreen extends React.Component {
   constructor(props){
   super(props)
     this.state={
-      info: [] ,
+      clothing_article_id: 1,
+      article_name: "Mens Breathe Hyper Dry Training Top",
+      img_url: "https://slimages.macysassets.com/is/image/MCY/products/2/optimized/10326792_fpx.tif?op_sharpen=1&wid=1230&hei=1500&fit=fit,1&$filterxlrg$",
+      brand_name: "Nike",
       favorited_ids: [1,2,4],
       }
-    }
+  }
 
 
 
@@ -52,16 +55,16 @@ export default class FavoritesScreen extends React.Component {
 
 
   render() {
-    const iconColor = this.state.favorited_ids.includes(this.state.info.clothing_article_id) ? '#a05000' : '#a6a6a8'
+    const iconColor = this.state.favorited_ids.includes(this.state.clothing_article_id) ? '#a05000' : '#a6a6a8'
     console.log(this.state.info)
     return (
       <View style = {styles.item}>
         {this.fetchInfo}
         <ImageBackground
-          source={{uri: this.state.info.img_url}}
-          style={{width: '100%', height: '93%'}}
+          source={{uri: this.state.img_url}}
+          style={styles.picture}
         >
-            <TouchableOpacity onPress={() =>{this.onFavoritedPressed(this.state.info.clothing_article_id)}} >
+            <TouchableOpacity onPress={() =>{this.onFavoritedPressed(this.state.clothing_article_id)}} >
               <Icon.Ionicons
                 name='ios-heart'
                 size={33}
@@ -71,7 +74,8 @@ export default class FavoritesScreen extends React.Component {
           </TouchableOpacity>
         </ImageBackground>
         <View >
-          <Text >{this.state.info.article_name}</Text>
+          <Text style={styles.articleName}>{this.state.article_name}</Text>
+          <Text style={styles.bestFit}>Your Best Fit:   Medium </Text>
         </View>
     </View>
     );
@@ -87,7 +91,21 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   },
   item: {
-    height: '100%',
-    width: '100%'
+    // height: '100%',
+    // width: '100%',
+    alignItems: 'center',
+  },
+  picture: {
+    width: 375,
+    height: 500,
+    marginBottom: 20,
+    marginTop: 20,
+  },
+  articleName: {
+    fontSize: 20,
+  },
+  bestFit: {
+    fontSize: 18,
+    fontWeight: "700",
   },
 });

@@ -60,7 +60,7 @@ export default class ShopScreen extends React.Component {
           img_url: 'https://s7d9.scene7.com/is/image/LuckyBrandJeans/7MD10316_420_1?$hi-res$',
           sex: 'male'
         }],
-        favorited_ids: [2,4],
+        favorited_ids: [1,2,4],
       }
     }
   onFavoritedPressed = (id) => {
