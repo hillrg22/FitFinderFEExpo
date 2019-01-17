@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingTop: 0,
-    backgroundColor: '#e7e8dc',
+    backgroundColor: '#f7f2ed',
     paddingBottom: 250,
   },
   avatarContainer: {

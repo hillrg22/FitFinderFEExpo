@@ -1,8 +1,9 @@
 import React from 'react';
 import { ScrollView, StyleSheet, View, Text, ImageBackground, TouchableOpacity} from 'react-native';
-import { Avatar } from 'react-native-elements'
+import { Avatar, Button } from 'react-native-elements'
 import { Icon } from 'expo';
 import Colors from '../constants/Colors';
+import { ActionSheetProvider, connectActionSheet } from '@expo/react-native-action-sheet';
 
 export default class ShopScreen extends React.Component {
   static navigationOptions = {
@@ -80,6 +81,21 @@ export default class ShopScreen extends React.Component {
     this.props.navigation.navigate('IndividualItem')
   }
 
+  // _onOpenActionSheet = () => {
+  //   // Same interface as https://facebook.github.io/react-native/docs/actionsheetios.html
+  //   const options = ['Delete', 'Save', 'Cancel'];
+  //   const destructiveButtonIndex = 0;
+  //   const cancelButtonIndex = 2;
+  //
+  //   this.props.showActionSheetWithOptions({
+  //     options,
+  //     cancelButtonIndex,
+  //     destructiveButtonIndex,
+  //   },
+  //   (buttonIndex) => {
+  //    if (buttonIndex === 0) { /* destructive action */ }
+  //   });
+  // }
   render() {
 
     const clothingList = this.state.clothing.map(article =>{
@@ -106,14 +122,23 @@ export default class ShopScreen extends React.Component {
              </View>
     })
     return (
-      <ScrollView contentContainerStyle={styles.container}>
-        {clothingList}
-      </ScrollView>
+      <ActionSheetProvider>
+
+        <View style={styles.main}>
+          {/* <Button onPress={this._onOpenActionSheet} title="Brand" /> */}
+          <ScrollView contentContainerStyle={styles.container}>
+            {clothingList}
+          </ScrollView>
+        </View>
+      </ActionSheetProvider>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  main: {
+    flex:1
+  },
   container: {
     flex: 1,
     paddingTop: 15,
@@ -122,6 +147,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
+    marginBottom: 500,
 
   },
   clothingItem: {
