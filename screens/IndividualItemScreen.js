@@ -7,7 +7,7 @@ export default class FavoritesScreen extends React.Component {
   static navigationOptions = {
     title: 'Item',
     headerStyle: {
-      backgroundColor: '#1c4166',
+      backgroundColor: '#205e74',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {

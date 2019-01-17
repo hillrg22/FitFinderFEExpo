@@ -3,7 +3,7 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import MainTabNavigator from './MainTabNavigator';
 import AuthNavigator from './AuthNavigator'
-import ShopNavigator from './ShopNavigator'
+
 
 export default createAppContainer(createSwitchNavigator({
   // You could add another route here for authentication.
@@ -11,5 +11,4 @@ export default createAppContainer(createSwitchNavigator({
 
   Auth: AuthNavigator,
   Main: MainTabNavigator,
-  Shop: ShopNavigator
 }));

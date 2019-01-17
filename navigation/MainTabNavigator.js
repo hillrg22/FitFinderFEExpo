@@ -6,7 +6,9 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import ShopScreen from '../screens/ShopScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import FavoritesScreen from '../screens/FavoritesScreen'
+import FavoritesScreen from '../screens/FavoritesScreen';
+import IndividualItemScreen from '../screens/IndividualItemScreen';
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
@@ -33,7 +35,7 @@ HomeStack.navigationOptions = {
 };
 
 const ShopStack = createStackNavigator({
-  Shop: ShopScreen,
+  Shop: ShopScreen, IndividualItem:IndividualItemScreen
 });
 
 ShopStack.navigationOptions = {
@@ -73,7 +75,7 @@ SettingsStack.navigationOptions = {
 };
 
 const FavoritesStack = createStackNavigator({
-  Favorites: FavoritesScreen,
+  Favorites: FavoritesScreen, IndividualItem: IndividualItemScreen
 });
 
 FavoritesStack.navigationOptions = {

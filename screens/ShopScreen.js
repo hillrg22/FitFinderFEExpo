@@ -1,9 +1,8 @@
 import React from 'react';
-import { ScrollView, StyleSheet, View, Text, ImageBackground, TouchableOpacity} from 'react-native';
-import { Avatar, Button } from 'react-native-elements'
+import { Picker, ScrollView, StyleSheet, View, Text, ImageBackground, TouchableOpacity} from 'react-native';
+import { Avatar, Button, ThemeProvider } from 'react-native-elements'
 import { Icon } from 'expo';
 import Colors from '../constants/Colors';
-import { ActionSheetProvider, connectActionSheet } from '@expo/react-native-action-sheet';
 
 export default class ShopScreen extends React.Component {
   static navigationOptions = {
@@ -21,6 +20,7 @@ export default class ShopScreen extends React.Component {
   constructor(props){
   super(props)
     this.state={
+      showPicker: false,
       clothing:[  {
           id: 1,
           name: 'Mens Breathe Hyper Dry Training Top',
@@ -62,6 +62,7 @@ export default class ShopScreen extends React.Component {
           sex: 'male'
         }],
         favorited_ids: [1,2,4],
+        currentBrand: "All Brands",
       }
     }
   onFavoritedPressed = (id) => {
@@ -81,22 +82,30 @@ export default class ShopScreen extends React.Component {
     this.props.navigation.navigate('IndividualItem')
   }
 
-  // _onOpenActionSheet = () => {
-  //   // Same interface as https://facebook.github.io/react-native/docs/actionsheetios.html
-  //   const options = ['Delete', 'Save', 'Cancel'];
-  //   const destructiveButtonIndex = 0;
-  //   const cancelButtonIndex = 2;
-  //
-  //   this.props.showActionSheetWithOptions({
-  //     options,
-  //     cancelButtonIndex,
-  //     destructiveButtonIndex,
-  //   },
-  //   (buttonIndex) => {
-  //    if (buttonIndex === 0) { /* destructive action */ }
-  //   });
-  // }
+  closePicker = () => {
+    this.setState({ showPicker: !this.state.showPicker})
+  }
+
+  onSelectBrand = () => {
+    this.setState({ showPicker: false})
+    console.log(this.state.currentBrand)
+  }
+
   render() {
+    const theme = {
+      Button: {
+        titleStyle: {
+          color: '#fff',
+          backgroundColor: '#a05000',
+          width: '100%',
+        },
+        buttonStyle:{
+          borderRadius: 5
+        },
+        containerStyle:{overflow:'hidden', borderRadius:6},
+        raised: true,
+      }
+    }
 
     const clothingList = this.state.clothing.map(article =>{
       const iconColor = this.state.favorited_ids.includes(article.id) ? '#a05000' : '#a6a6a8'
@@ -122,15 +131,31 @@ export default class ShopScreen extends React.Component {
              </View>
     })
     return (
-      <ActionSheetProvider>
+        <ThemeProvider theme={theme}>
+          <View style={styles.main}>
+            <Button title="Brand" style={styles.selectorButton} onPress={this.closePicker}/>
+               { this.state.showPicker &&
+                 <View>
+                   <Picker
+                   style={{marginLeft: 120, width: 200}}
+                   selectedValue={this.state.currentBrand}
+                   onValueChange={(brand) => this.setState({currentBrand: brand})}>
+                   <Picker.Item label="All Brands" value="All Brands" />
+                   <Picker.Item label="Lucky Brand" value="Lucky Brand" />
+                   <Picker.Item label="Nike" value="Nike" />
+                   <Picker.Item label="Nordstrom" value="Nordstrom" />
+                   <Picker.Item label="H&M" value="H&M" />
+                   <Picker.Item label="Urban Outfitters" value="Urban Outfitters" />
 
-        <View style={styles.main}>
-          {/* <Button onPress={this._onOpenActionSheet} title="Brand" /> */}
-          <ScrollView contentContainerStyle={styles.container}>
-            {clothingList}
-          </ScrollView>
-        </View>
-      </ActionSheetProvider>
+                 </Picker>
+                 <Button title="Choose Brand" onPress={this.onSelectBrand}/>
+                </View>
+               }
+            <ScrollView contentContainerStyle={styles.container}>
+              {clothingList}
+            </ScrollView>
+          </View>
+        </ThemeProvider>
     );
   }
 }
@@ -154,5 +179,8 @@ const styles = StyleSheet.create({
     height: 250,
     width: 200,
     paddingBottom:15,
+  },
+  selectorButton: {
+      backgroundColor:'#a05000'
   }
 });

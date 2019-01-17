@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
 import { Avatar } from 'react-native-elements'
 
 
@@ -61,9 +61,14 @@ export default class FavoritesScreen extends React.Component {
           sex: 'male'
         }
       ],
-      favorites: [1,2,4],
+      favorites: [1,2,3,4],
       }
     }
+
+  onPressClothingItem = (key) => {
+      console.log("pressed id", key)
+      this.props.navigation.navigate('IndividualItem')
+  }
 
   favoritesChecker = () => {
     if (!this.state.favorites.length){
@@ -79,13 +84,16 @@ export default class FavoritesScreen extends React.Component {
       const mapped = filteredFavs.map(item =>{
         console.log(item)
         return(
-          <View key = {item.id} style = {styles.clothingItem}>
-            <Avatar
-              size= "xlarge"
-              rounded = {false}
-              source = {{uri: item.img_url}}
-              activeOpacity= {0.6}
-            />
+          <View key = {item.id} style = {styles.clothingItem} >
+            <TouchableOpacity onPress={() => {this.onPressClothingItem(item.id)}}>
+              <Avatar
+                size= "xlarge"
+                rounded = {false}
+                source = {{uri: item.img_url}}
+                activeOpacity= {0.6}
+
+              />
+            </TouchableOpacity>
             <Text>{item.name}</Text>
           </View>
         )
