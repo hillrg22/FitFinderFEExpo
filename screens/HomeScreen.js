@@ -8,15 +8,16 @@ import {
   TouchableOpacity,
   View,
   KeyboardAvoidingView,
+  ImageBackground,
 } from 'react-native';
 
 import {Button, ThemeProvider, Avatar} from 'react-native-elements'
-import {Icon} from 'react-native-vector-icons/FontAwesome'
-import { WebBrowser } from 'expo';
+// import {Icon} from 'react-native-vector-icons/FontAwesome'
+import { WebBrowser, Icon } from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import Measurements from '../components/Measurements';
-
+import MeasurementsSaved from '../components/MeasurementsSaved';
 console.disableYellowBox = true
 export default class HomeScreen extends React.Component {
   constructor(props){
@@ -88,7 +89,7 @@ export default class HomeScreen extends React.Component {
     const theme = {
       Button: {
         titleStyle: {
-          color: 'black',
+          color: '#fff',
           backgroundColor: '#a05000',
           width: '100%',
         },
@@ -106,6 +107,7 @@ export default class HomeScreen extends React.Component {
       Badge: {
         textStyle: { fontSize: 30 },
       },
+      Icon:{paddingTop: 11, paddingLeft: 18 }
     };
 
     return (
@@ -113,23 +115,14 @@ export default class HomeScreen extends React.Component {
         <ThemeProvider theme={theme}>
           <View style={styles.container}>
             <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-              <View style={styles.aboutContainer}>
-                <Text style={styles.about}>Welcome, Rob!</Text>
-              </View>
-              <View style={styles.avatarContainer}>
+              <ImageBackground source={{uri: "https://images.unsplash.com/photo-1512436991641-6745cdb1723f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80"}} style={styles.avatarContainer}>
+
                 <Avatar
                   source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg"}}
                   onPress ={() => console.log("Works!")}
-                />
-              </View>
 
-              <View >
-                <Button
-                  buttonStyle={{backgroundColor:'#a6a6a8'}}
-                  onPress={this.editProfileInputs}
-                  title="Edit"
                 />
-              </View>
+              </ImageBackground>
               <View style={styles.buttonContainer}>
                 <Button
                   containerStyle={{overflow:'hidden', borderRadius:6}}
@@ -139,7 +132,21 @@ export default class HomeScreen extends React.Component {
                 />
               </View>
               <View>
-              {this.state.measurementsClicked ? <Measurements onInputChange = {this.onInputChange} saveMeasurementsButtonClicked = {this.saveMeasurementsButtonClicked} waistInput = {this.state.waistInput} heightInput = {this.state.heightInput} chestInput = {this.state.chestInput} inseamInput = {this.state.inseamInput} footInput = {this.state.footInput}/> : null}
+              {this.state.measurementsClicked ? <Measurements
+                                                onInputChange = {this.onInputChange}
+                                                saveMeasurementsButtonClicked = {this.saveMeasurementsButtonClicked}
+                                                waistInput = {this.state.waistInput}
+                                                heightInput = {this.state.heightInput}
+                                                chestInput = {this.state.chestInput}
+                                                inseamInput = {this.state.inseamInput}
+                                                footInput = {this.state.footInput}/> :
+                                                <MeasurementsSaved
+                                                waistInput = {this.state.waistInput}
+                                                heightInput = {this.state.heightInput}
+                                                chestInput = {this.state.chestInput}
+                                                inseamInput = {this.state.inseamInput}
+                                                footInput = {this.state.footInput}/>
+              }
               </View>
               <View style={styles.buttonContainer}>
                 <Button
@@ -165,13 +172,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
   },
   contentContainer: {
-    paddingTop: 30,
+    paddingTop: 0,
+    backgroundColor: '#e7e8dc',
   },
   avatarContainer: {
     alignItems: 'center',
-    paddingTop: 30,
+    paddingTop: 2,
     paddingBottom: 30,
-    marginTop: 10,
+    marginTop: 0,
     marginBottom: 20,
     backgroundColor: '#858b96',
   },
