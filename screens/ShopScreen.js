@@ -8,7 +8,7 @@ export default class ShopScreen extends React.Component {
   static navigationOptions = {
     title: 'Shop',
     headerStyle: {
-      backgroundColor: '#1c4166',
+      backgroundColor: '#205e74',
     },
     headerTintColor: '#FFF',
     headerTitleStyle: {

@@ -37,7 +37,7 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     title: 'My Profile',
     headerStyle: {
-      backgroundColor: '#1c4166',
+      backgroundColor: '#205e74',
     },
     headerTintColor: '#fff',
     headerTitleStyle: {
@@ -56,8 +56,9 @@ export default class HomeScreen extends React.Component {
   }
 
   onInputChange = (key,value) => {
-    // this.setState({[key]: value} )
-    console.log( this)
+    this.setState({[key]: value}, () => {
+      console.log(this.state)
+    } )
     //set state to
   }
 
@@ -128,7 +129,7 @@ export default class HomeScreen extends React.Component {
                   containerStyle={{overflow:'hidden', borderRadius:6}}
                   raised= {true}
                   onPress={this.measurementsButtonClicked}
-                  title="My Measurements"
+                  title="Edit Measurements"
                 />
               </View>
               <View>
@@ -139,16 +140,18 @@ export default class HomeScreen extends React.Component {
                                                 heightInput = {this.state.heightInput}
                                                 chestInput = {this.state.chestInput}
                                                 inseamInput = {this.state.inseamInput}
-                                                footInput = {this.state.footInput}/> :
+                                                footInput = {this.state.footInput}
+                                                neckInput = {this.state.neckInput}/> :
                                                 <MeasurementsSaved
                                                 waistInput = {this.state.waistInput}
                                                 heightInput = {this.state.heightInput}
                                                 chestInput = {this.state.chestInput}
                                                 inseamInput = {this.state.inseamInput}
-                                                footInput = {this.state.footInput}/>
+                                                footInput = {this.state.footInput}
+                                                neckInput = {this.state.neckInput}/>
               }
               </View>
-              <View style={styles.buttonContainer}>
+              <View style={styles.logoutButtonContainer}>
                 <Button
                   raised= {true}
                   onPress={this.onLogOut}
@@ -174,6 +177,7 @@ const styles = StyleSheet.create({
   contentContainer: {
     paddingTop: 0,
     backgroundColor: '#e7e8dc',
+    paddingBottom: 250,
   },
   avatarContainer: {
     alignItems: 'center',
@@ -187,6 +191,12 @@ const styles = StyleSheet.create({
     padding: 10,
     paddingLeft: 100,
     width: '75%',
+  },
+  logoutButtonContainer: {
+    padding: 10,
+    paddingLeft: 100,
+    width: '75%',
+    paddingTop: 130,
   },
   aboutContainer: {
     flex: 1,

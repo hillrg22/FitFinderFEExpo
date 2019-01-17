@@ -27,7 +27,7 @@ HomeStack.navigationOptions = {
   tabBarOptions: {
     activeTintColor: "#a05000",
     style: {
-      backgroundColor: '#1c4166'
+      backgroundColor: '#205e74'
     }
   }
 };
@@ -47,7 +47,7 @@ ShopStack.navigationOptions = {
   tabBarOptions: {
     activeTintColor: "#a05000",
     style: {
-      backgroundColor: '#1c4166'
+      backgroundColor: '#205e74'
     }
   }
 };
@@ -67,7 +67,7 @@ SettingsStack.navigationOptions = {
   tabBarOptions: {
     activeTintColor: "#a05000",
     style: {
-      backgroundColor: '#1c4166'
+      backgroundColor: '#205e74'
     }
   }
 };
@@ -87,7 +87,7 @@ FavoritesStack.navigationOptions = {
   tabBarOptions: {
     activeTintColor: "#a05000",
     style: {
-      backgroundColor: '#1c4166'
+      backgroundColor: '#205e74'
     }
   }
 };
