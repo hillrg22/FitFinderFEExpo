@@ -43,7 +43,8 @@ export default class AuthScreen extends React.Component {
         textStyle: { fontSize: 30 },
       },
       Input:{
-        placeholderTextColor: '#fff'
+        placeholderTextColor: '#fff',
+        inputStyle:{color: '#fff'},
 
       }
     };
@@ -54,7 +55,7 @@ export default class AuthScreen extends React.Component {
           <Input placeholder= "Username" />
           <Input placeholder= "Password" secureTextEntry= {true} />
           <Button style={styles.button} title="Sign In!" titleStyle={{ color: "#fff" }} onPress={this.signIn}  />
-          <Text>Don't Have An Account?</Text>
+          <Text style={{color:'#fff'}}>Don't Have An Account?</Text>
           <Button style={styles.button2} title="Sign Up!" titleStyle={{ color: "#fff" }} onPress={this.signUp}  />
         </View>
       </ThemeProvider>

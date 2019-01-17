@@ -43,7 +43,8 @@ export default class SignUpScreen extends React.Component {
         textStyle: { fontSize: 30 },
       },
       Input:{
-        placeholderTextColor: '#fff'
+        placeholderTextColor: '#fff',
+        inputStyle:{color: '#fff'},
 
       }
     };
