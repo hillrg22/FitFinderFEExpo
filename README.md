@@ -1,4 +1,4 @@
-![image](/assets/FitFinderLogo.pdf)
+![](assets/FitFinderLogo.png)
 
 # FitFinder
 
