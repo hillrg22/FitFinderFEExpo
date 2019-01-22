@@ -1,4 +1,4 @@
-# FitFinderFEExpo
+# FitFinder
 
 This is an IOS app built with React Native in a ten day period. This is my first experience with React Native, as well as my first time building a mobile application. FitFinder is designed to improve the online shopping experience for consumers by taking an individual's measurements and recommending a "best fit" based on those measurements.
 
