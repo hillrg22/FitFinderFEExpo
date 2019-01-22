@@ -21,7 +21,7 @@ This is an IOS app built with React Native in a ten day period. This is my first
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-
+## To Do
 - [x] Login Page
 - [x] Signup Page
 - [x] Profile Page
@@ -29,4 +29,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [x] User can save body measurements to profile
 - [x] User can look through clothing items
 - [x] User can view favorited items on a Favorites screen
-- [] User can add items to favorites
+- [ ] User can add items to favorites
+- [ ] User can filter clothing items by brand
+- [ ] User can import body measurements from a 3D body scan
+- [ ] User can search for items with a search bar
+
