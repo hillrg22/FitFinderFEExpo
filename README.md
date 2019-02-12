@@ -35,4 +35,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [ ] User can filter clothing items by brand
 - [ ] User can import body measurements from a 3D body scan
 - [ ] User can search for items with a search bar
+- [ ] User can click a retailer link on item page and be redirected to a webpage where the item is for sale
 
