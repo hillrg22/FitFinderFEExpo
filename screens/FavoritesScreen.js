@@ -99,6 +99,7 @@ export default class FavoritesScreen extends React.Component {
       return mapped
     }
   }
+  
 
   render() {
     return (
