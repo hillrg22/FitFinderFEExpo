@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, ImageBackground } from 'react-native'
 import { Avatar } from 'react-native-elements'
 
 
@@ -86,13 +86,11 @@ export default class FavoritesScreen extends React.Component {
         return(
           <View key = {item.id} style = {styles.clothingItem} >
             <TouchableOpacity onPress={() => {this.onPressClothingItem(item.id)}}>
-              <Avatar
-                size= "xlarge"
-                rounded = {false}
-                source = {{uri: item.img_url}}
-                activeOpacity= {0.6}
-
-              />
+              <ImageBackground
+                source={{uri: item.img_url}}
+                style={{width: '100%', height: '93%'}}
+              >
+              </ImageBackground>
             </TouchableOpacity>
             <Text>{item.name}</Text>
           </View>

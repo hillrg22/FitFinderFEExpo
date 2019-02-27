@@ -115,7 +115,7 @@ export default class ShopScreen extends React.Component {
                     source={{uri: article.img_url}}
                     style={{width: '100%', height: '93%'}}
                   >
-                      <TouchableOpacity onPress={() =>{this.onFavoritedPressed(article.id)}} >
+                    <TouchableOpacity onPress={() =>{this.onFavoritedPressed(article.id)}} >
                         <Icon.Ionicons
                           name='ios-heart'
                           size={33}
