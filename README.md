@@ -1,8 +1,8 @@
-![image](/assets/FitFinderLogo.pdf)
+![](assets/FitFinderLogo.png)
 
 # FitFinder
 
-This is an IOS app built with React Native in a ten day period. This is my first experience with React Native, as well as my first time building a mobile application. FitFinder is designed to improve the online shopping experience for consumers by taking an individual's measurements and recommending a "best fit" based on those measurements.
+This is an IOS app built with React Native in a ten day period. This is my first experience with React Native, as well as my first time building a mobile application. FitFinder is designed to improve the online shopping experience for consumers by taking an individual's measurements and recommending a "best fit" based on those measurements. In the future, I plan to implement several other features, including importing of 3D body scans for body measurements. 
 
 ## Technologies
 
@@ -35,4 +35,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 - [ ] User can filter clothing items by brand
 - [ ] User can import body measurements from a 3D body scan
 - [ ] User can search for items with a search bar
+- [ ] User can click a retailer link on item page and be redirected to a webpage where the item is for sale
 
